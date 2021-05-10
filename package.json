@@ -1,21 +1,12 @@
 {
-  "name": "electron-quick-start",
+  "name": "translator",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "translator",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
   },
-  "repository": "https://github.com/electron/electron-quick-start",
-  "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
-  ],
-  "author": "GitHub",
-  "license": "CC0-1.0",
+  "author": "liushuai <770722922@qq.com>",
   "devDependencies": {
     "electron": "^12.0.6"
   }
