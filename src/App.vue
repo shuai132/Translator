@@ -2,8 +2,16 @@
   <div id="app">
     <textarea v-model="input_str"></textarea>
     <button @click="onTranslate(input_str)">Translate</button>
-    <div>YouDao: {{ result.youdao }}</div>
-    <div>Google: {{ result.google }}</div>
+    <div>YouDao:</div>
+    <div>Result:{{ result.youdao }}</div>
+    <div>YouDao:{{ result.youdao2 }}</div>
+    <div>Google:{{ result.youdao3 }}</div>
+
+    <p></p>
+    <div>Google:</div>
+    <div>{{ result.google }}</div>
+    <div>{{ result.google2 }}</div>
+    <div>{{ result.google3 }}</div>
   </div>
 </template>
 
@@ -18,26 +26,49 @@ export default {
       input_str: "",
       result: {
         youdao: "",
+        youdao2: "",
+        youdao3: "",
         google: "",
-        baidu: "",
+        google2: "",
+        google3: "",
         reset() {
           this.youdao = "";
+          this.youdao2 = "";
+          this.youdao3 = "";
           this.google = "";
-          this.baidu = "";
+          this.google2 = "";
+          this.google3 = "";
         }
       }
     }
   },
   methods: {
     onTranslate(input) {
+      input = "Newly bought Apple computer"
       this.result.reset();
       translateYouDao(input, (result) => {
         this.result.youdao = result;
+
+        translateYouDao(result, (result) => {
+          this.result.youdao2 = result
+        })
+
+        google.translate(result).then(result => {
+          this.result.youdao3 = result.result[0];
+        })
       });
 
       google.translate(input).then(result => {
-        console.log(result)
-        this.result.google = result.result[0];
+        result = result.result[0]
+        this.result.google = result;
+
+        google.translate(result).then(result => {
+          this.result.google2 = result.result[0];
+        })
+
+        translateYouDao(result, (result) => {
+          this.result.google3 = result
+        })
       })
     }
   }
