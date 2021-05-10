@@ -10,6 +10,10 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
+    "crypto-js": "^4.0.0",
+    "google-translate-api": "^2.3.0",
+    "jquery": "^3.6.0",
+    "translation-jsapi": "^1.1.3",
     "vue": "^2.5.11"
   },
   "browserslist": [
