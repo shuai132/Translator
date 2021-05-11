@@ -78,7 +78,7 @@ export default {
   methods: {
     onTranslate (input) {
       const now = Date.now()
-      if (now - this.state.lastClickTime < 1000) {
+      if (now - this.state.lastClickTime < 3000) {
         Toast('点击太快了吧亲~~  ╮(￣▽ ￣)╭ 我竟无言以对~~', 500)
         return
       }
@@ -113,6 +113,8 @@ export default {
         translateYouDao(result, (result) => {
           this.result.google3 = result
         })
+      }).catch((reason) => {
+        Toast('Oops! Google翻译禁止了我们访问 °(°ˊДˋ°) °', 3000)
       })
     }
   }
