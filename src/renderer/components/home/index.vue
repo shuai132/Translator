@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import {translateYouDao} from './translator'
+import {translateYouDao} from '../js/translator'
 // eslint-disable-next-line no-unused-vars
 import { youdao, baidu, google } from 'translation-jsapi'
 
